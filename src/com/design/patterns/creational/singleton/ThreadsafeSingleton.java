@@ -11,7 +11,13 @@ public class ThreadsafeSingleton {
     }
 
     public static ThreadsafeSingleton getInstance(){
-        if(instance == null) return new ThreadsafeSingleton();
+        if(instance == null){
+            synchronized (ThreadsafeSingleton.class){
+                if(instance == null){
+                    instance = new ThreadsafeSingleton();
+                }
+            }
+        }
         return instance;
     }
 }

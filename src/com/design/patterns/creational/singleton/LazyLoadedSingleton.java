@@ -8,7 +8,7 @@ public class LazyLoadedSingleton {
 
     public static LazyLoadedSingleton getInstance(){
         if(instance == null){
-            return new LazyLoadedSingleton();
+            instance = new LazyLoadedSingleton();
         }
         return instance;
     }
